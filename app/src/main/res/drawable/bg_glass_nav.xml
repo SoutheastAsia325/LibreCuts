@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 导航选中胶囊：单色墨色微填充 + 细描边（原来用的是粉色 #20FF2A6D） -->
+<!-- 悬浮底部导航条：大圆角毛玻璃胶囊 -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <solid android:color="@color/activeToolBackground" />
+    <solid android:color="@color/glassFillElevated" />
     <corners android:radius="@dimen/radius_nav" />
     <stroke
         android:width="@dimen/glass_hairline"

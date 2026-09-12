@@ -1,39 +1,41 @@
 <resources>
 
-    <!-- Base application theme -->
-    <style name="AppTheme" parent="Theme.Material3.Dark.NoActionBar">
+    <!--
+      基础主题：改为 DayNight，浅色/深色由 values-night 自动切换。
+      所有颜色都走语义色引用，因此布局无需感知模式。
+    -->
+    <style name="AppThemeBase" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
         <item name="colorOnPrimary">@color/colorOnPrimary</item>
         <item name="colorSecondary">@color/colorSecondary</item>
         <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
         <item name="colorOnSecondary">@color/colorOnSecondary</item>
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <item name="colorBackground">@color/background</item>
+        <item name="android:colorBackground">@color/background</item>
         <item name="android:windowBackground">@color/background</item>
         <item name="android:textColor">@color/textColor</item>
         <item name="android:navigationBarColor">@color/navigationBarColor</item>
         <item name="android:statusBarColor">@color/statusBarColor</item>
+        <item name="shapeAppearanceOverlay">@style/DialogShapeAppearance</item>
         <!-- Modern transitions -->
         <item name="android:windowActivityTransitions">true</item>
     </style>
 
-    <style name="Editor" parent="Theme.Material3.Dark.NoActionBar">
-        <item name="colorBackground">@color/background</item>
-        <item name="shapeAppearanceOverlay">@style/DialogShapeAppearance</item> <!-- Custom shape -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
-        <item name="colorOnPrimary">@color/colorOnPrimary</item>
-        <item name="colorSecondary">@color/colorSecondary</item>
-        <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
-        <item name="colorOnSecondary">@color/colorOnSecondary</item>
-        <item name="android:windowBackground">@color/background</item>
-        <item name="android:textColor">@color/textColor</item>
-        <item name="android:navigationBarColor">@color/navigationBarColor</item>
-        <item name="android:statusBarColor">@color/statusBarColor</item>
+    <!-- 浅色模式：状态栏图标为深色 -->
+    <style name="AppTheme" parent="AppThemeBase">
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="Editor" parent="AppThemeBase">
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
     <style name="DialogShapeAppearance" parent="">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">24dp</item>
+        <item name="cornerSize">20dp</item>
     </style>
 
 </resources>

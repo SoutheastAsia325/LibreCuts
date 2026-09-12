@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  UI 尺寸与圆角令牌：扁平画风 / 8-12dp 小圆角，无投影，靠 1dp 细描边分层。
+  对应 CapCut 式扁平 + Apple 中性灰阶。
+-->
+<resources>
+    <dimen name="radius_card">12dp</dimen>
+    <dimen name="radius_control">8dp</dimen>
+    <dimen name="radius_nav">28dp</dimen>
+    <dimen name="radius_sheet">20dp</dimen>
+    <dimen name="glass_hairline">1dp</dimen>
+</resources>

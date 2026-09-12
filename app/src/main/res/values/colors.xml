@@ -1,57 +1,71 @@
 <resources>
+    <!--
+      浅色模式配色（默认）。风格：深灰 / 黑 / 白为主的极简单色，
+      参考 Kimi 品牌基调 + Apple 中性灰阶。
+      深色模式见 values-night/colors.xml（取相反值）。
+      注意：色名与旧版保持完全一致，因此 44 个布局与 232 个 drawable 无需逐个改动。
+    -->
 
-    <!-- PRIMARY: Electric Pink -->
-    <color name="colorPrimary">#FF2A6D</color>
-    <color name="colorPrimaryVariant">#C81D52</color>
+    <!-- PRIMARY：墨色（浅色=黑，深色=白），作为填充按钮/选中态 -->
+    <color name="colorPrimary">#1A1A1A</color>
+    <color name="colorPrimaryVariant">#000000</color>
     <color name="colorOnPrimary">#FFFFFF</color>
 
-    <!-- SECONDARY: Bright Pink Accent -->
-    <color name="colorSecondary">#FF2A6D</color>
-    <color name="colorSecondaryVariant">#C81D52</color>
+    <!-- SECONDARY：与 PRIMARY 同族，保持单色 -->
+    <color name="colorSecondary">#1A1A1A</color>
+    <color name="colorSecondaryVariant">#000000</color>
     <color name="colorOnSecondary">#FFFFFF</color>
 
-    <!-- BACKGROUND: OLED Black -->
-    <color name="background">#000000</color>
-    <color name="colorOnBackground">#F2F2F2</color>
+    <!-- BACKGROUND -->
+    <color name="background">#FFFFFF</color>
+    <color name="colorOnBackground">#1A1A1A</color>
 
-    <!-- SURFACE: Subtle Grays -->
-    <color name="colorSurface">#111114</color>
-    <color name="colorOnSurface">#F2F2F2</color>
+    <!-- SURFACE -->
+    <color name="colorSurface">#F5F5F7</color>
+    <color name="colorOnSurface">#1A1A1A</color>
 
     <!-- UI SPECIFIC -->
-    <color name="statusBarColor">#000000</color>
-    <color name="navigationBarColor">#000000</color> <!-- Transparent/floating effect works better if base is black -->
+    <color name="statusBarColor">#FFFFFF</color>
+    <color name="navigationBarColor">#FFFFFF</color>
+    <!-- 预览区底色：两种模式都必须是纯黑（视频观看体验） -->
     <color name="cinemaBlack">#000000</color>
-    <color name="textColor">#F2F2F2</color>
+    <color name="textColor">#1A1A1A</color>
 
-    <!-- CONTAINERS (Elevation levels) -->
-    <color name="surfaceContainerLowest">#000000</color>
-    <color name="surfaceContainer">#111114</color>
-    <color name="surfaceContainerHigh">#1A1A20</color>
-    <color name="surfaceVariant">#212128</color>
-    <color name="floatingPanelBackground">#1A1A20</color>
+    <!-- CONTAINERS -->
+    <color name="surfaceContainerLowest">#FFFFFF</color>
+    <color name="surfaceContainer">#F5F5F7</color>
+    <color name="surfaceContainerHigh">#ECECEF</color>
+    <color name="surfaceVariant">#E3E3E8</color>
+    <color name="floatingPanelBackground">#F0F0F3</color>
 
-    <color name="primaryContainer">#FF2A6D</color>
+    <color name="primaryContainer">#1A1A1A</color>
     <color name="onPrimaryContainer">#FFFFFF</color>
 
-    <color name="tertiary">#FFC107</color>
-    <color name="tertiaryContainer">#FFA000</color>
+    <color name="tertiary">#454545</color>
+    <color name="tertiaryContainer">#5F5F5F</color>
     <color name="onTertiary">#FFFFFF</color>
 
     <!-- OUTLINES -->
-    <color name="outline">#3F3F4A</color>
-    <color name="outlineVariant">#2C2C35</color>
-    <color name="iconSecondary">#8A8A93</color>
+    <color name="outline">#D0D0D5</color>
+    <color name="outlineVariant">#E5E5EA</color>
+    <color name="iconSecondary">#8A8A8E</color>
 
     <!-- TOOL COLORS -->
-    <color name="activeTool">#FF2A6D</color>
-    <color name="activeToolBackground">#2A1118</color> <!-- Subtle pink tint for active tool -->
-    <color name="inactiveTool">#8A8A93</color>
-    <color name="inactiveToolBackground">#111114</color>
+    <color name="activeTool">#1A1A1A</color>
+    <color name="activeToolBackground">#EDEDF0</color>
+    <color name="inactiveTool">#8A8A8E</color>
+    <color name="inactiveToolBackground">#FFFFFF</color>
 
-    <color name="toolTextActive">#FF2A6D</color>
-    <color name="toolTextInactive">#8A8A93</color>
+    <color name="toolTextActive">#1A1A1A</color>
+    <color name="toolTextInactive">#8A8A8E</color>
 
-    <color name="sliderHalo">#1A1A20</color>
+    <color name="sliderHalo">#E5E5EA</color>
 
+    <!-- 毛玻璃（glassmorphism）语义色 -->
+    <color name="glassFill">#B3FFFFFF</color>
+    <color name="glassFillElevated">#E6FFFFFF</color>
+    <color name="glassStroke">#1A000000</color>
+    <color name="glassStrokeStrong">#26000000</color>
+    <color name="backdropStart">#FFFFFF</color>
+    <color name="backdropEnd">#EDEDF0</color>
 </resources>

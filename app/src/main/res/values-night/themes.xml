@@ -1,0 +1,10 @@
+<resources>
+    <!-- 深色模式：状态栏图标为浅色。颜色值本身由 values-night/colors.xml 提供。 -->
+    <style name="AppTheme" parent="AppThemeBase">
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="Editor" parent="AppThemeBase">
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

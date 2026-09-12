@@ -20,7 +20,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Font"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/textColor"
             android:textSize="14sp" />
         <LinearLayout
             android:id="@+id/btnSelectFont"
@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Roboto Regular"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/textColor"
                 android:textSize="14sp"
                 android:ellipsize="end"
                 android:maxLines="1" />
@@ -49,7 +49,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/ic_arrow_drop_down_24"
-                app:tint="#FFFFFF" />
+                app:tint="@color/textColor" />
         </LinearLayout>
     </LinearLayout>
 
@@ -64,7 +64,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Opacity"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/textColor"
             android:textSize="14sp" />
         <com.google.android.material.slider.Slider
             android:id="@+id/seekOpacity"
@@ -88,7 +88,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Shadow"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/textColor"
             android:textSize="14sp" />
         <com.google.android.material.slider.Slider
             android:id="@+id/seekBorderWidth"
@@ -112,7 +112,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Letter Spacing"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/textColor"
             android:textSize="14sp" />
         <com.google.android.material.slider.Slider
             android:id="@+id/seekLetterSpacing"
@@ -136,7 +136,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Line Spacing"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/textColor"
             android:textSize="14sp" />
         <com.google.android.material.slider.Slider
             android:id="@+id/seekLineSpacing"
@@ -160,7 +160,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Alignment"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/textColor"
             android:textSize="14sp" />
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAlignLeft"
@@ -171,7 +171,7 @@
             android:insetBottom="0dp"
             app:icon="@drawable/ic_align_left_24"
             app:iconGravity="textStart"
-            app:iconTint="#FFFFFF"
+            app:iconTint="@color/toolTextInactive"
             android:backgroundTint="@color/inactiveToolBackground" />
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAlignCenter"
@@ -183,7 +183,7 @@
             android:insetBottom="0dp"
             app:icon="@drawable/ic_align_center_24"
             app:iconGravity="textStart"
-            app:iconTint="#FFFFFF"
+            app:iconTint="@color/colorOnPrimary"
             android:backgroundTint="@color/colorPrimary" />
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAlignRight"
@@ -194,7 +194,7 @@
             android:insetBottom="0dp"
             app:icon="@drawable/ic_align_right_24"
             app:iconGravity="textStart"
-            app:iconTint="#FFFFFF"
+            app:iconTint="@color/toolTextInactive"
             android:backgroundTint="@color/inactiveToolBackground" />
     </LinearLayout>
 

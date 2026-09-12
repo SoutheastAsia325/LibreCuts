@@ -1,0 +1,68 @@
+<resources>
+    <!--
+      深色模式配色：与 values/colors.xml 完全相反的极简单色
+      （黑 / 深灰 / 白为主）。色名一一对应，缺一个都会退回浅色值，务必保持同步。
+    -->
+
+    <!-- PRIMARY：墨色（深色=白） -->
+    <color name="colorPrimary">#F5F5F5</color>
+    <color name="colorPrimaryVariant">#FFFFFF</color>
+    <color name="colorOnPrimary">#0A0A0B</color>
+
+    <!-- SECONDARY -->
+    <color name="colorSecondary">#F5F5F5</color>
+    <color name="colorSecondaryVariant">#FFFFFF</color>
+    <color name="colorOnSecondary">#0A0A0B</color>
+
+    <!-- BACKGROUND -->
+    <color name="background">#000000</color>
+    <color name="colorOnBackground">#F5F5F5</color>
+
+    <!-- SURFACE -->
+    <color name="colorSurface">#101012</color>
+    <color name="colorOnSurface">#F5F5F5</color>
+
+    <!-- UI SPECIFIC -->
+    <color name="statusBarColor">#000000</color>
+    <color name="navigationBarColor">#000000</color>
+    <color name="cinemaBlack">#000000</color>
+    <color name="textColor">#F5F5F5</color>
+
+    <!-- CONTAINERS -->
+    <color name="surfaceContainerLowest">#000000</color>
+    <color name="surfaceContainer">#101012</color>
+    <color name="surfaceContainerHigh">#1A1A1E</color>
+    <color name="surfaceVariant">#212126</color>
+    <color name="floatingPanelBackground">#1A1A1E</color>
+
+    <color name="primaryContainer">#FFFFFF</color>
+    <color name="onPrimaryContainer">#0A0A0B</color>
+
+    <color name="tertiary">#A0A0A5</color>
+    <color name="tertiaryContainer">#888888</color>
+    <color name="onTertiary">#0A0A0B</color>
+
+    <!-- OUTLINES -->
+    <color name="outline">#3A3A40</color>
+    <color name="outlineVariant">#2A2A30</color>
+    <color name="iconSecondary">#8A8A8E</color>
+
+    <!-- TOOL COLORS -->
+    <color name="activeTool">#F5F5F5</color>
+    <color name="activeToolBackground">#1F1F23</color>
+    <color name="inactiveTool">#8A8A8E</color>
+    <color name="inactiveToolBackground">#101012</color>
+
+    <color name="toolTextActive">#F5F5F5</color>
+    <color name="toolTextInactive">#8A8A8E</color>
+
+    <color name="sliderHalo">#2A2A30</color>
+
+    <!-- 毛玻璃 -->
+    <color name="glassFill">#14FFFFFF</color>
+    <color name="glassFillElevated">#1FFFFFFF</color>
+    <color name="glassStroke">#1FFFFFFF</color>
+    <color name="glassStrokeStrong">#33FFFFFF</color>
+    <color name="backdropStart">#0A0A0B</color>
+    <color name="backdropEnd">#000000</color>
+</resources>

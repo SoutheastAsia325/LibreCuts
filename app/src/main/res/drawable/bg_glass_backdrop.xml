@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  毛玻璃的「背景层」：极淡的中性渐变，供 GlassUi.applyGlassBlur 在 API 31+ 上做真实模糊。
+  API 26-30 无模糊，退化为纯渐变底（仍能透过半透明面板看到层次）。
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:angle="270"
+        android:startColor="@color/backdropStart"
+        android:endColor="@color/backdropEnd"
+        android:type="linear" />
+</shape>

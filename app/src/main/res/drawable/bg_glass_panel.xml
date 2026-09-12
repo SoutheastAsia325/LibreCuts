@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 首页次卡（打开项目）：更低对比的毛玻璃面板 -->
+<!-- 毛玻璃面板：半透明填充 + 1dp 细描边，无投影（扁平化分层） -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <solid android:color="@color/glassFill" />
