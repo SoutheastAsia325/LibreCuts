@@ -843,6 +843,7 @@
                 android:id="@+id/ivProjects"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
+                android:importantForAccessibility="no"
                 android:src="@drawable/ic_folder_24"
                 app:tint="@color/colorPrimary" />
 
@@ -873,6 +874,7 @@
                 android:id="@+id/ivSettings"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
+                android:importantForAccessibility="no"
                 android:src="@drawable/ic_settings_24"
                 app:tint="@color/inactiveTool" />
 
@@ -903,6 +905,7 @@
                 android:id="@+id/ivAbout"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
+                android:importantForAccessibility="no"
                 android:src="@drawable/ic_info_24"
                 app:tint="@color/inactiveTool" />
 
