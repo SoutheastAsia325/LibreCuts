@@ -209,7 +209,7 @@ class ExportService : Service() {
     private fun saveVideoToGallery(videoFile: File, isAudioOnly: Boolean): Uri? {
         val mimeType = if (isAudioOnly) "audio/mpeg" else "video/mp4"
         val ext = if (isAudioOnly) ".mp3" else ".mp4"
-        val prefix = if (isAudioOnly) "LibreCuts_Audio_" else "LibreCuts_"
+        val prefix = if (isAudioOnly) "AureliaLite_Audio_" else "AureliaLite_"
         
         val sharedPreferences = getSharedPreferences("librecuts_prefs", Context.MODE_PRIVATE)
         val prefKey = if (isAudioOnly) "export_audio_directory_uri" else "export_directory_uri"

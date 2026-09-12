@@ -18,7 +18,7 @@ class LibreCutsApplication : Application() {
         val oldHandler = Thread.getDefaultUncaughtExceptionHandler()
 
         Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
-            Log.e("LibreCutsCrash", "CRITICAL CRASH IN APPLICATION", throwable)
+            Log.e("AureliaLiteCrash", "CRITICAL CRASH IN APPLICATION", throwable)
 
             // Start a dedicated Error Activity to show the dialog
             val intent = Intent(this, ErrorDisplayActivity::class.java).apply {

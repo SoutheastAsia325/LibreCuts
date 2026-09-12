@@ -2459,7 +2459,7 @@ class VideoEditingActivity : AppCompatActivity() {
     }
 
     private fun saveBitmapToGallery(bitmap: android.graphics.Bitmap) {
-        val filename = "LibreCuts_Frame_${System.currentTimeMillis()}.png"
+        val filename = "AureliaLite_Frame_${System.currentTimeMillis()}.png"
         var fos: java.io.OutputStream? = null
         var imageUri: Uri? = null
         try {
@@ -2491,13 +2491,13 @@ class VideoEditingActivity : AppCompatActivity() {
                     val contentValues = android.content.ContentValues().apply {
                         put(android.provider.MediaStore.MediaColumns.DISPLAY_NAME, filename)
                         put(android.provider.MediaStore.MediaColumns.MIME_TYPE, "image/png")
-                        put(android.provider.MediaStore.MediaColumns.RELATIVE_PATH, android.os.Environment.DIRECTORY_PICTURES + "/LibreCuts")
+                        put(android.provider.MediaStore.MediaColumns.RELATIVE_PATH, android.os.Environment.DIRECTORY_PICTURES + "/AureliaLite")
                     }
                     imageUri = resolver.insert(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
                     fos = imageUri?.let { resolver.openOutputStream(it) }
                 } else {
                     val imagesDir = android.os.Environment.getExternalStoragePublicDirectory(android.os.Environment.DIRECTORY_PICTURES)
-                    val directory = java.io.File(imagesDir, "LibreCuts")
+                    val directory = java.io.File(imagesDir, "AureliaLite")
                     if (!directory.exists()) directory.mkdirs()
                     val image = java.io.File(directory, filename)
                     fos = java.io.FileOutputStream(image)
@@ -4935,7 +4935,7 @@ class VideoEditingActivity : AppCompatActivity() {
                     
                     val mimeType = if (isAudioOnly) "audio/mpeg" else "video/mp4"
                     val ext = if (isAudioOnly) ".mp3" else ".mp4"
-                    val prefix = if (isAudioOnly) "LibreCuts_Audio_" else "LibreCuts_"
+                    val prefix = if (isAudioOnly) "AureliaLite_Audio_" else "AureliaLite_"
 
                     if (customUriString != null) {
                         try {
@@ -4960,7 +4960,7 @@ class VideoEditingActivity : AppCompatActivity() {
                     } else {
                         // Default fallback
                         val defaultDir = if (isAudioOnly) Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC) else Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
-                        val outputDir = File(defaultDir, "LibreCuts")
+                        val outputDir = File(defaultDir, "AureliaLite")
                         if (!outputDir.exists()) outputDir.mkdirs()
                         val file = File(outputDir, "${prefix}${System.currentTimeMillis()}$ext")
                         outputFile = file
@@ -5064,7 +5064,7 @@ class VideoEditingActivity : AppCompatActivity() {
             titleView.text = displayName
             pathView.text = customUri.path ?: customUriString
         } else {
-            titleView.text = "LibreCuts (Default)"
+            titleView.text = "AureliaLite (Default)"
             pathView.text = if (isAudioOnly) "Music/LibreCuts" else "Movies/LibreCuts"
         }
     }
@@ -7406,7 +7406,7 @@ class VideoEditingActivity : AppCompatActivity() {
         val isAudioOnly = videoFile.name.endsWith(".mp3")
         val mimeType = if (isAudioOnly) "audio/mpeg" else "video/mp4"
         val ext = if (isAudioOnly) ".mp3" else ".mp4"
-        val prefix = if (isAudioOnly) "LibreCuts_Audio_" else "LibreCuts_"
+        val prefix = if (isAudioOnly) "AureliaLite_Audio_" else "AureliaLite_"
         
         val sharedPreferences = getSharedPreferences("librecuts_prefs", Context.MODE_PRIVATE)
         val prefKey = if (isAudioOnly) "export_audio_directory_uri" else "export_directory_uri"
@@ -7441,9 +7441,9 @@ class VideoEditingActivity : AppCompatActivity() {
                 put(MediaStore.MediaColumns.DISPLAY_NAME, "${prefix}${System.currentTimeMillis()}$ext")
                 put(MediaStore.MediaColumns.MIME_TYPE, mimeType)
                 if (isAudioOnly) {
-                    put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_MUSIC + "/LibreCuts")
+                    put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_MUSIC + "/AureliaLite")
                 } else {
-                    put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_MOVIES + "/LibreCuts")
+                    put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_MOVIES + "/AureliaLite")
                 }
             }
             val collectionUri = if (isAudioOnly) MediaStore.Audio.Media.EXTERNAL_CONTENT_URI else MediaStore.Video.Media.EXTERNAL_CONTENT_URI
