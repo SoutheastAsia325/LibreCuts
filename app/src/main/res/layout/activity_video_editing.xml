@@ -8,6 +8,13 @@
     android:fitsSystemWindows="true"
     tools:context=".VideoEditingActivity">
 
+    <!-- 毛玻璃背景层：底部柔和光晕，让编辑器的玻璃栏有层次可透 -->
+    <View
+        android:id="@+id/editorGlassGlow"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_glass_glow_bottom" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,7 +26,7 @@
             android:layout_height="56dp"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:background="@color/background"
+            android:background="@drawable/bg_editor_topbar"
             android:paddingHorizontal="16dp">
 
             <ImageButton
@@ -111,7 +118,8 @@
                 <View
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
-                    android:background="#22FFFFFF" />
+                    android:background="@color/onPrimaryContainer"
+                    android:alpha="0.22" />
 
                 <ImageView
                     android:id="@+id/btnSaveDropdown"
@@ -138,7 +146,7 @@
             android:layout_marginHorizontal="12dp"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/bg_hero_bento_secondary"
+            android:background="@drawable/bg_preview_surface"
             android:clipToOutline="true"
             android:outlineProvider="background">
 
@@ -273,7 +281,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@color/surfaceContainerHigh"
+            android:background="@drawable/bg_editor_surface"
             android:paddingTop="4dp"
             android:paddingBottom="4dp">
 
@@ -300,7 +308,7 @@
                         android:padding="8dp"
                         android:scaleType="fitCenter"
                         android:contentDescription="Expand Timeline"
-                        app:tint="@color/colorOnSecondary" />
+                        app:tint="@color/textColor" />
 
                     <ImageButton
                         android:id="@+id/btnMoveLayerUp"
@@ -312,7 +320,7 @@
                         android:padding="8dp"
                         android:scaleType="fitCenter"
                         android:visibility="gone"
-                        app:tint="@color/colorOnSecondary" />
+                        app:tint="@color/textColor" />
 
                     <ImageButton
                         android:id="@+id/btnMoveLayerDown"
@@ -324,7 +332,7 @@
                         android:padding="8dp"
                         android:scaleType="fitCenter"
                         android:visibility="gone"
-                        app:tint="@color/colorOnSecondary" />
+                        app:tint="@color/textColor" />
                 </LinearLayout>
 
                 <Space
@@ -361,7 +369,7 @@
                         android:src="@drawable/ic_camera_capture"
                         android:padding="8dp"
                         android:scaleType="fitCenter"
-                        app:tint="@color/colorOnSecondary" />
+                        app:tint="@color/textColor" />
 
                     <ImageButton
                         android:id="@+id/btnMagnet"
@@ -371,7 +379,7 @@
                         android:src="@drawable/ic_magnet_24"
                         android:padding="8dp"
                         android:scaleType="fitCenter"
-                        app:tint="@color/colorOnSecondary" />
+                        app:tint="@color/textColor" />
 
                     <ImageButton
                         android:id="@+id/btnMute"
@@ -381,7 +389,7 @@
                         android:src="@drawable/ic_volume_up_24"
                         android:padding="8dp"
                         android:scaleType="fitCenter"
-                        app:tint="@color/colorOnSecondary" />
+                        app:tint="@color/textColor" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -410,7 +418,7 @@
                             android:id="@+id/timeRulerView"
                             android:layout_width="wrap_content"
                             android:layout_height="28dp"
-                            android:background="@color/colorSurface" />
+                            android:background="@android:color/transparent" />
 
                         <ScrollView
                             android:id="@+id/timelineVerticalScroll"
@@ -505,7 +513,7 @@
                     android:orientation="horizontal"
                     android:gravity="center"
                     android:visibility="gone"
-                    android:background="@drawable/bg_aspect_ratio_item"
+                    android:background="@drawable/bg_glass_panel"
                     android:clickable="true"
                     android:focusable="true">
                     
@@ -872,7 +880,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:indeterminate="true"
-            android:indeterminateTint="@color/colorPrimary" />
+            android:indeterminateTint="@color/onScrim" />
     </FrameLayout>
 
     <!-- Floating PiP Container for Timeline Expand Mode -->
@@ -884,7 +892,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/bg_hero_bento_secondary"
+        android:background="@drawable/bg_preview_surface"
         android:clipToOutline="true"
         android:outlineProvider="background"
         android:visibility="gone" />
@@ -917,12 +925,12 @@
                 android:layout_height="44dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
-                android:background="@drawable/rounded_time_bg"
+                android:background="@drawable/bg_overlay_chip"
                 android:src="@drawable/ic_fullscreen_exit_24"
                 android:padding="10dp"
                 android:scaleType="fitCenter"
                 android:contentDescription="Exit Fullscreen"
-                app:tint="@color/textColor" />
+                app:tint="@color/onScrim" />
 
             <ImageButton
                 android:id="@+id/btnFullscreenPlayPause"
@@ -942,7 +950,7 @@
                 android:layout_alignParentBottom="true"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:background="@drawable/rounded_time_bg"
+                android:background="@drawable/bg_overlay_chip"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="8dp">
 
@@ -951,7 +959,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="00:00"
-                    android:textColor="@color/textColor"
+                    android:textColor="@color/onScrim"
                     android:textSize="13sp"
                     android:fontFamily="sans-serif-medium" />
 
@@ -961,8 +969,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:max="1000"
-                    android:progressTint="@color/colorPrimary"
-                    android:thumbTint="@color/colorPrimary"
+                    android:progressTint="@color/onScrim"
+                    android:thumbTint="@color/onScrim"
                     android:layout_marginHorizontal="12dp" />
 
                 <TextView
@@ -970,7 +978,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="00:00"
-                    android:textColor="@color/textColor"
+                    android:textColor="@color/onScrim"
                     android:textSize="13sp"
                     android:fontFamily="sans-serif-medium" />
 
@@ -984,7 +992,7 @@
                     android:padding="6dp"
                     android:scaleType="fitCenter"
                     android:contentDescription="Exit Fullscreen"
-                    app:tint="@color/textColor" />
+                    app:tint="@color/onScrim" />
             </LinearLayout>
         </RelativeLayout>
     </FrameLayout>

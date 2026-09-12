@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 编辑器顶部栏：扁平毛玻璃 + 底部 1dp 发丝线（替代投影做分层） -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/glassFillElevated" />
+        </shape>
+    </item>
+    <item
+        android:height="@dimen/glass_hairline"
+        android:gravity="bottom">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/glassStrokeStrong" />
+        </shape>
+    </item>
+</layer-list>

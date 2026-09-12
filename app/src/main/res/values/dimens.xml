@@ -9,4 +9,5 @@
     <dimen name="radius_nav">28dp</dimen>
     <dimen name="radius_sheet">20dp</dimen>
     <dimen name="glass_hairline">1dp</dimen>
+    <dimen name="stroke_focus">1.5dp</dimen>
 </resources>

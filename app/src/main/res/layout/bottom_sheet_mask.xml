@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@drawable/bg_bottom_nav_docked"
+    android:background="@drawable/bg_glass_sheet"
     android:padding="16dp">
 
     <!-- Header & Invert Toggle Row -->

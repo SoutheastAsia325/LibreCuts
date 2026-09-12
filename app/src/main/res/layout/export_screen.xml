@@ -4,7 +4,7 @@
     android:id="@+id/exportScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B3000000"
+    android:background="@color/scrim"
     android:visibility="gone"
     android:clickable="true"
     android:focusable="true">
@@ -44,7 +44,7 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/str_please_don_t_close_the_app"
                 android:textAlignment="center"
-                android:textColor="@color/outline"
+                android:textColor="@color/iconSecondary"
                 android:fontFamily="sans-serif"
                 android:textSize="14sp" />
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 工具按钮（未选中）：毛玻璃方片 + 12dp 圆角 + 发丝线，靠描边分层而非投影 -->
+<!-- 悬浮小胶囊：时长角标 / 预览角标 / 全屏按钮 -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <solid android:color="@color/glassFill" />
-    <corners android:radius="@dimen/radius_card" />
+    <solid android:color="@color/glassFillElevated" />
+    <corners android:radius="@dimen/radius_control" />
     <stroke
         android:width="@dimen/glass_hairline"
         android:color="@color/glassStroke" />

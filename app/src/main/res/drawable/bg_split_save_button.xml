@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- 分裂式「导出」按钮底：实心墨色（内容用 @color/onPrimaryContainer，配对正确）。
+     圆角由 20dp 收敛到 12dp，符合扁平 8-12dp 规范。 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
     <solid android:color="@color/primaryContainer" />
-    <corners android:radius="20dp" />
+    <corners android:radius="@dimen/radius_card" />
 </shape>

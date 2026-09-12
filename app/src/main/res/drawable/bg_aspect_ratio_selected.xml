@@ -1,4 +1,7 @@
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 比例选项（选中）：实心墨色。代码配套使用 @color/colorOnPrimary 作为内容色，配对正确，勿改底面语义。 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
     <solid android:color="@color/primaryContainer" />
-    <corners android:radius="16dp" />
+    <corners android:radius="@dimen/radius_card" />
 </shape>

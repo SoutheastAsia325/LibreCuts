@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  视频浮层专用胶囊：**永远半透明深色**，不随明暗模式反转。
+  原因：它永远坐在视频 / 纯黑全屏之上，配套内容色是 @color/onScrim（永远浅色）。
+  若用会反转的玻璃胶囊，浅色模式下会变成白底 + 白图标 = 白对白。
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#66000000" />
+    <corners android:radius="@dimen/radius_control" />
+    <stroke
+        android:width="@dimen/glass_hairline"
+        android:color="#1FFFFFFF" />
+</shape>

@@ -4,7 +4,7 @@
     android:id="@+id/loadingScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B3000000"
+    android:background="@color/scrim"
     android:visibility="gone"
     android:clickable="true"
     android:focusable="true">
@@ -52,7 +52,7 @@
                 android:layout_marginTop="8dp"
                 android:gravity="center"
                 android:text="@string/loading_tag"
-                android:textColor="@color/outline"
+                android:textColor="@color/iconSecondary"
                 android:fontFamily="sans-serif"
                 android:textSize="14sp"/>
 

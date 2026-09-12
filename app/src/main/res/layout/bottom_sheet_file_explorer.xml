@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorSurface"
+    android:background="@drawable/bg_glass_sheet"
     android:paddingStart="12dp"
     android:paddingEnd="12dp"
     android:paddingBottom="16dp">

@@ -1,4 +1,10 @@
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/surfaceVariant" />
-    <corners android:radius="16dp" />
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 比例选项（未选中）/ 空工程态：毛玻璃方片 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/glassFill" />
+    <corners android:radius="@dimen/radius_card" />
+    <stroke
+        android:width="@dimen/glass_hairline"
+        android:color="@color/glassStroke" />
 </shape>

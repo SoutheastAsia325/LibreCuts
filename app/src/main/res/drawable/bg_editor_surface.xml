@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 编辑器播放控制 / 时间轴区：扁平毛玻璃 + 顶部 1dp 发丝线 -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/glassFillElevated" />
+        </shape>
+    </item>
+    <item
+        android:height="@dimen/glass_hairline"
+        android:gravity="top">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/glassStrokeStrong" />
+        </shape>
+    </item>
+</layer-list>
