@@ -215,7 +215,7 @@
                 app:iconGravity="textStart"
                 app:backgroundTint="@color/surfaceContainerHigh"
                 android:textColor="@color/textColor"
-                app:cornerRadius="12dp"
+                app:cornerRadius="@dimen/radius_card"
                 android:layout_marginBottom="8dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -227,7 +227,7 @@
                 app:iconGravity="textStart"
                 app:backgroundTint="@color/colorPrimary"
                 android:textColor="@color/colorOnPrimary"
-                app:cornerRadius="12dp"
+                app:cornerRadius="@dimen/radius_card"
                 android:layout_marginBottom="8dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -237,7 +237,7 @@
                 android:layout_height="56dp"
                 android:text="Restart App"
                 android:textColor="@color/textColor"
-                app:cornerRadius="12dp" />
+                app:cornerRadius="@dimen/radius_card" />
 
         </LinearLayout>
     </ScrollView>

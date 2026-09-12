@@ -6,7 +6,6 @@
     android:layout_marginTop="6dp"
     android:scrollbars="none"
     android:background="@drawable/bg_bottom_nav_docked"
-    android:elevation="12dp"
     android:clipToOutline="true"
     android:requiresFadingEdge="horizontal"
     android:fadingEdgeLength="32dp"

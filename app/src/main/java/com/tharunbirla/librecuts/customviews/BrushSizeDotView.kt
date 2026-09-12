@@ -1,4 +1,6 @@
 package com.tharunbirla.librecuts.customviews
+import androidx.core.content.ContextCompat
+import com.tharunbirla.librecuts.R
 
 import android.content.Context
 import android.graphics.Canvas
@@ -23,7 +25,7 @@ class BrushSizeDotView @JvmOverloads constructor(
 
     private val fillPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.FILL
-        color = Color.parseColor("#FF007A") // Electric Pink default
+        color = ContextCompat.getColor(context, R.color.colorPrimary) // 默认笔色（跟随主题墨色）
     }
 
     private val borderPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {

@@ -260,7 +260,7 @@
             android:text="Save Project (.lcprj)"
             android:textColor="@color/onPrimaryContainer"
             android:backgroundTint="@color/colorPrimary"
-            app:cornerRadius="12dp"
+            app:cornerRadius="@dimen/radius_card"
             app:icon="@drawable/ic_save_24"
             app:iconTint="@color/onPrimaryContainer"
             app:iconGravity="textStart" />

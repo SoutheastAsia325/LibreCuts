@@ -57,7 +57,7 @@
         android:textAllCaps="false"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:cornerRadius="12dp"
+        app:cornerRadius="@dimen/radius_card"
         app:backgroundTint="@color/colorPrimary"
         android:layout_marginBottom="12dp" />
 
@@ -70,7 +70,7 @@
         android:textAllCaps="false"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:cornerRadius="12dp"
+        app:cornerRadius="@dimen/radius_card"
         app:backgroundTint="@color/surfaceContainerHigh"
         app:strokeColor="@color/outline"
         app:strokeWidth="1dp"
@@ -86,6 +86,6 @@
         android:textAllCaps="false"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:textColor="#FF5252" />
+        android:textColor="@color/colorError" />
 
 </LinearLayout>

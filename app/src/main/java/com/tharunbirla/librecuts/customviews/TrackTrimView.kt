@@ -1,4 +1,6 @@
 package com.tharunbirla.librecuts.customviews
+import androidx.core.content.ContextCompat
+import com.tharunbirla.librecuts.R
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -140,12 +142,12 @@ class TrackTrimView @JvmOverloads constructor(
                     // Dim bounds removed to prevent covering adjacent clips
                     
                     // Draw a thick border enclosing the active range when selected
-                    borderPaint.color = Color.parseColor("#FF4081")
+                    borderPaint.color = ContextCompat.getColor(context, R.color.activeTool)
                     borderPaint.strokeWidth = 8f
                     canvas.drawRect(rectF, borderPaint)
                 } else {
                     // Main track selection highlight without trimmer handles/ghosts
-                    borderPaint.color = Color.parseColor("#FF2A6D") // Electric Pink selection
+                    borderPaint.color = ContextCompat.getColor(context, R.color.activeTool) // 主题选中态（activeTool）
                     borderPaint.strokeWidth = 10f
                     // Inset the rect so the stroke doesn't get clipped by the parent FrameLayout
                     val inset = borderPaint.strokeWidth / 2f
@@ -258,7 +260,7 @@ class TrackTrimView @JvmOverloads constructor(
         // Draw track border
         if (!isMainVideoTrack) {
             if (isSelectedTrack) {
-                borderPaint.color = Color.parseColor("#FF4081") // Vibrant pink selection accent
+                borderPaint.color = ContextCompat.getColor(context, R.color.activeTool) // 主题选中态（activeTool）
                 borderPaint.strokeWidth = 6f
                 canvas.drawRoundRect(rectF, 12f, 12f, borderPaint)
                 
@@ -314,7 +316,7 @@ class TrackTrimView @JvmOverloads constructor(
         if (isTrimEnabled) {
             val currentHandleWidth = handleWidth * currentHandleScale
             if (isMainVideoTrack) {
-                handlePaint.color = Color.parseColor("#FF4081")
+                handlePaint.color = ContextCompat.getColor(context, R.color.activeTool)
             } else {
                 handlePaint.color = Color.WHITE
             }

@@ -13,7 +13,7 @@
         android:layout_height="4dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="12dp"
-        android:background="#40FFFFFF" />
+        android:background="@color/outline" />
 
     <!-- Header Row -->
     <RelativeLayout
@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:text="Import and select custom fonts (.ttf / .otf)"
-                android:textColor="#A0A0A0"
+                android:textColor="@color/iconSecondary"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -72,7 +72,7 @@
         app:icon="@drawable/ic_add_24"
         app:iconGravity="textStart"
         app:iconTint="@color/colorOnPrimary"
-        app:cornerRadius="12dp"
+        app:cornerRadius="@dimen/radius_card"
         android:backgroundTint="@color/colorPrimary" />
 
     <!-- List of Fonts -->
@@ -88,7 +88,7 @@
         android:layout_height="120dp"
         android:gravity="center"
         android:text="No fonts found"
-        android:textColor="#80FFFFFF"
+        android:textColor="@color/iconSecondary"
         android:textSize="14sp"
         android:visibility="gone" />
 

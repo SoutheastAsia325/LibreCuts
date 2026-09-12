@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle">
-    <solid android:color="#141318" />
-    <corners
-        android:topLeftRadius="28dp"
-        android:topRightRadius="28dp"
-        android:bottomLeftRadius="28dp"
-        android:bottomRightRadius="28dp" />
-    <stroke
-        android:width="1dp"
-        android:color="#2C2C35" />
-</shape>
+<!-- 顶部两角圆角的扁平毛玻璃栏 -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/glassFillElevated" />
+            <corners android:topLeftRadius="@dimen/radius_card" android:topRightRadius="@dimen/radius_card" />
+        </shape>
+    </item>
+    <item
+        android:height="@dimen/glass_hairline"
+        android:gravity="top">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/glassStrokeStrong" />
+        </shape>
+    </item>
+</layer-list>

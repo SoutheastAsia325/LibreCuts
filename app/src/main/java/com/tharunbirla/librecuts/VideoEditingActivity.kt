@@ -1,4 +1,5 @@
 package com.tharunbirla.librecuts
+import androidx.core.content.ContextCompat
 
 import android.widget.ImageView
 import kotlinx.coroutines.isActive
@@ -2967,7 +2968,7 @@ class VideoEditingActivity : AppCompatActivity() {
                     
                     isRecordingVoiceOver = true
                     tvStatus.text = "Recording... Tap to stop"
-                    btnToggle.backgroundTintList = android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#FF4081"))
+                    btnToggle.backgroundTintList = android.content.res.ColorStateList.valueOf(ContextCompat.getColor(this@VideoEditingActivity, R.color.activeTool))
                     
                     rippleAnimator.start()
                     rippleAnimator2.start()
@@ -7685,7 +7686,7 @@ class VideoEditingActivity : AppCompatActivity() {
                     shape = android.graphics.drawable.GradientDrawable.OVAL
                     setColor(android.graphics.Color.parseColor(colorHex))
                     if (colorHex == selectedTextColor) {
-                        setStroke((3 * density).toInt(), android.graphics.Color.parseColor("#007AFF"))
+                        setStroke((3 * density).toInt(), ContextCompat.getColor(this@VideoEditingActivity, R.color.activeTool))
                     } else {
                         if (colorHex == "#FFFFFF" || colorHex == "#000000") {
                             setStroke(1, android.graphics.Color.GRAY)

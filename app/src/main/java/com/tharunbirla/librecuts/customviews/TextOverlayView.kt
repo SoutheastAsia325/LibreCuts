@@ -1,4 +1,6 @@
 package com.tharunbirla.librecuts.customviews
+import androidx.core.content.ContextCompat
+import com.tharunbirla.librecuts.R
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -41,7 +43,7 @@ class TextOverlayView @JvmOverloads constructor(
 
     private val subtitleBounds = android.graphics.RectF()
     private val selectionPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#007AFF") // Active accent color
+        color = ContextCompat.getColor(context, R.color.activeTool) // 主题强调色
         style = Paint.Style.STROKE
         strokeWidth = 3f
         pathEffect = DashPathEffect(floatArrayOf(10f, 10f), 0f)

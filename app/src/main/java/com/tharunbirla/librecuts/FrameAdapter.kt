@@ -1,4 +1,5 @@
 package com.tharunbirla.librecuts
+import androidx.core.content.ContextCompat
 
 import android.graphics.Bitmap
 import android.view.LayoutInflater
@@ -35,7 +36,7 @@ class FrameAdapter(
             holder.imageView.setBackgroundColor(android.graphics.Color.TRANSPARENT)
         } else {
             holder.imageView.setImageDrawable(null)
-            holder.imageView.setBackgroundColor(android.graphics.Color.parseColor("#2C2C2C"))
+            holder.imageView.setBackgroundColor(ContextCompat.getColor(holder.imageView.context, R.color.surfaceContainerHigh))
         }
     }
 

@@ -1,4 +1,6 @@
 package com.tharunbirla.librecuts.customviews
+import androidx.core.content.ContextCompat
+import com.tharunbirla.librecuts.R
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -98,7 +100,7 @@ class DraggableTextOverlayView @JvmOverloads constructor(
     private var dragOffsetY = 0f
 
     private val guidelinePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#CEC0EC")
+        color = ContextCompat.getColor(context, R.color.activeTool)
         style = Paint.Style.STROKE
         strokeWidth = 3f
         pathEffect = DashPathEffect(floatArrayOf(15f, 10f), 0f)

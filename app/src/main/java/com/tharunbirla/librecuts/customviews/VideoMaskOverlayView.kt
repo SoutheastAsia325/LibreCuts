@@ -1,4 +1,6 @@
 package com.tharunbirla.librecuts.customviews
+import androidx.core.content.ContextCompat
+import com.tharunbirla.librecuts.R
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -38,7 +40,7 @@ class VideoMaskOverlayView @JvmOverloads constructor(
     }
     
     private val handleFillPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#FF2A6D")
+        color = ContextCompat.getColor(context, R.color.activeTool)
         style = Paint.Style.FILL
     }
     

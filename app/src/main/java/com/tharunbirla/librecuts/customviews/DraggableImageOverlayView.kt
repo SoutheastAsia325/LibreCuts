@@ -1,4 +1,6 @@
 package com.tharunbirla.librecuts.customviews
+import androidx.core.content.ContextCompat
+import com.tharunbirla.librecuts.R
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -76,7 +78,7 @@ class DraggableImageOverlayView @JvmOverloads constructor(
     private var chromaJob: Job? = null
 
     private val guidelinePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#CEC0EC")
+        color = ContextCompat.getColor(context, R.color.activeTool)
         style = Paint.Style.STROKE
         strokeWidth = 3f
         pathEffect = android.graphics.DashPathEffect(floatArrayOf(15f, 10f), 0f)
@@ -110,7 +112,7 @@ class DraggableImageOverlayView @JvmOverloads constructor(
     private val cornerPath = android.graphics.Path()
 
     private val handleFillPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#FF2A6D")
+        color = ContextCompat.getColor(context, R.color.activeTool)
         style = Paint.Style.FILL
     }
     

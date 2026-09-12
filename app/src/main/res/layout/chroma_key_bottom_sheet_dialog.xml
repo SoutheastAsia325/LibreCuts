@@ -100,7 +100,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Clear"
-            android:textColor="#F44336" />
+            android:textColor="@color/colorError" />
 
         <Button
             android:id="@+id/btnChromaApply"

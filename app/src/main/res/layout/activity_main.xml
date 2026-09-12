@@ -254,8 +254,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_hero_bento_secondary"
                 android:orientation="vertical"
-                android:padding="20dp"
-                android:elevation="4dp">
+                android:padding="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -479,8 +478,7 @@
                 android:layout_marginTop="16dp"
                 android:background="@drawable/bg_hero_bento_secondary"
                 android:orientation="vertical"
-                android:padding="20dp"
-                android:elevation="4dp">
+                android:padding="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -564,8 +562,7 @@
                 android:layout_marginTop="16dp"
                 android:background="@drawable/bg_hero_bento_secondary"
                 android:orientation="vertical"
-                android:padding="20dp"
-                android:elevation="4dp">
+                android:padding="20dp">
 
                 <!-- Check for Updates Setting -->
                 <LinearLayout
@@ -659,8 +656,7 @@
                 android:background="@drawable/bg_hero_bento_primary"
                 android:orientation="vertical"
                 android:padding="24dp"
-                android:gravity="center"
-                android:elevation="8dp">
+                android:gravity="center">
 
                 <ImageView
                     android:layout_width="72dp"
@@ -707,8 +703,7 @@
                 android:background="@drawable/bg_hero_bento_secondary"
                 android:orientation="vertical"
                 android:padding="24dp"
-                android:gravity="center_horizontal"
-                android:elevation="4dp">
+                android:gravity="center_horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -735,7 +730,7 @@
                     android:text="@string/str_star_on_github"
                     android:textColor="@color/onPrimaryContainer"
                     android:backgroundTint="@color/colorPrimary"
-                    app:cornerRadius="14dp"
+                    app:cornerRadius="@dimen/radius_card"
                     android:textSize="14sp"
                     android:fontFamily="sans-serif-medium"
                     app:icon="@drawable/ic_star_24"
@@ -754,7 +749,7 @@
                     android:backgroundTint="@color/surfaceContainerHigh"
                     app:strokeColor="@color/outline"
                     app:strokeWidth="1dp"
-                    app:cornerRadius="14dp"
+                    app:cornerRadius="@dimen/radius_card"
                     android:textSize="14sp"
                     android:fontFamily="sans-serif-medium"
                     app:icon="@drawable/ic_translate_24"
@@ -773,7 +768,7 @@
                     android:backgroundTint="@color/surfaceContainerHigh"
                     app:strokeColor="@color/outline"
                     app:strokeWidth="1dp"
-                    app:cornerRadius="14dp"
+                    app:cornerRadius="@dimen/radius_card"
                     android:textSize="14sp"
                     android:fontFamily="sans-serif-medium"
                     app:icon="@drawable/ic_bug_24"
@@ -788,15 +783,15 @@
                     android:layout_height="52dp"
                     android:layout_marginTop="12dp"
                     android:text="@string/str_sponsor_project"
-                    android:textColor="#ff69b4"
+                    android:textColor="@color/colorPrimary"
                     android:backgroundTint="@color/surfaceContainerHigh"
-                    app:strokeColor="#ff69b4"
+                    app:strokeColor="@color/colorPrimary"
                     app:strokeWidth="1dp"
-                    app:cornerRadius="14dp"
+                    app:cornerRadius="@dimen/radius_card"
                     android:textSize="14sp"
                     android:fontFamily="sans-serif-medium"
                     app:icon="@drawable/ic_heart_24"
-                    app:iconTint="#ff69b4"
+                    app:iconTint="@color/colorPrimary"
                     app:iconGravity="textStart"
                     android:insetTop="0dp"
                     android:insetBottom="0dp" />
@@ -824,7 +819,6 @@
         android:layout_marginHorizontal="44dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/bg_glass_nav"
-        android:elevation="0dp"
         android:gravity="center"
         android:orientation="horizontal"
         android:paddingHorizontal="6dp"

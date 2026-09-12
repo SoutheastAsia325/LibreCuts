@@ -94,6 +94,5 @@
         android:backgroundTint="@color/primaryContainer"
         app:cornerRadius="24dp"
         android:insetTop="0dp"
-        android:insetBottom="0dp"
-        android:elevation="0dp" />
+        android:insetBottom="0dp" />
 </LinearLayout>

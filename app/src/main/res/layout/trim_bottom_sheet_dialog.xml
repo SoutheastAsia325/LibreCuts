@@ -13,8 +13,7 @@
         android:layout_marginHorizontal="12dp"
         android:layout_marginBottom="24dp"
         android:background="@drawable/bg_bottom_nav_floating"
-        android:padding="24dp"
-        android:elevation="12dp">
+        android:padding="24dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -84,8 +83,7 @@
             android:backgroundTint="@color/primaryContainer"
             app:cornerRadius="24dp"
             android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:elevation="0dp" />
+            android:insetBottom="0dp" />
 
     </LinearLayout>
 </LinearLayout>

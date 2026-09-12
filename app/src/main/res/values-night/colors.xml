@@ -67,4 +67,5 @@
     <color name="backdropEnd">#000000</color>
     <color name="glassGlow">#1AFFFFFF</color>
     <color name="glassGlowEdge">#00000000</color>
+    <color name="colorError">#FF6B6B</color>
 </resources>

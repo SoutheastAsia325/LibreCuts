@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle">
-    <solid android:color="#141318" />
-    <corners
-        android:topLeftRadius="20dp"
-        android:topRightRadius="20dp" />
-    <stroke
-        android:width="1dp"
-        android:color="#2C2C35" />
-</shape>
+<!--
+  工具栏 / 底部栏背景：扁平毛玻璃，用顶部 1dp 发丝线替代原来的 20dp 圆角 + elevation 阴影。
+  保留原文件名以兼容 9 处既有引用。
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/glassFillElevated" />
+        </shape>
+    </item>
+    <item
+        android:height="@dimen/glass_hairline"
+        android:gravity="top">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/glassStrokeStrong" />
+        </shape>
+    </item>
+</layer-list>

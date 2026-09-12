@@ -1,4 +1,6 @@
 package com.tharunbirla.librecuts.customviews
+import androidx.core.content.ContextCompat
+import com.tharunbirla.librecuts.R
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -36,7 +38,7 @@ class HandwritingCanvasView @JvmOverloads constructor(
     private var currentX = 0f
     private var currentY = 0f
 
-    var activeColor: Int = Color.parseColor("#FF007A")
+    var activeColor: Int = ContextCompat.getColor(context, R.color.colorPrimary)
         private set
     var activeStrokeWidthPx: Float = 12f * resources.displayMetrics.density
         private set

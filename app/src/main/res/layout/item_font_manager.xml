@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="Aa The quick brown fox 123"
-            android:textColor="#D1C4E9"
+            android:textColor="@color/textColor"
             android:textSize="16sp"
             android:maxLines="1"
             android:ellipsize="end" />
@@ -75,6 +75,6 @@
         android:src="@drawable/ic_delete_24"
         android:padding="6dp"
         android:scaleType="fitCenter"
-        app:tint="#F44336"
+        app:tint="@color/colorError"
         android:visibility="gone" />
 </LinearLayout>
