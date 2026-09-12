@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@string/str_supports_standard_srt_formatte"
-                android:textColor="@color/outline"
+                android:textColor="@color/iconSecondary"
                 android:textSize="12sp"/>
         </LinearLayout>
 

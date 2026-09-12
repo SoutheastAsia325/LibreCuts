@@ -75,7 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/str_0_0s_0_0s"
-                android:textColor="@color/outline"
+                android:textColor="@color/iconSecondary"
                 android:textSize="12sp"/>
         </LinearLayout>
 
