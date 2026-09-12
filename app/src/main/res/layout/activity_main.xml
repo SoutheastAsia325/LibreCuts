@@ -89,6 +89,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_add_24"
+                    android:contentDescription="@string/str_new_project"
                     app:tint="@color/colorOnPrimary" />
 
                 <LinearLayout
@@ -136,6 +137,7 @@
                     android:layout_width="22dp"
                     android:layout_height="22dp"
                     android:src="@drawable/ic_arrow_up_right_24"
+                    android:contentDescription="@string/str_open_project_file"
                     app:tint="@color/textColor" />
 
                 <LinearLayout
@@ -195,6 +197,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/ic_folder_24"
+                    android:importantForAccessibility="no"
                     app:tint="@color/iconSecondary" />
 
                 <TextView
@@ -661,6 +664,7 @@
                 <ImageView
                     android:layout_width="72dp"
                     android:layout_height="72dp"
+                    android:contentDescription="@string/app_name"
                     android:src="@mipmap/ic_launcher_round" />
 
                 <TextView
@@ -852,7 +856,7 @@
                 android:singleLine="true"
                 android:text="@string/str_projects"
                 android:textColor="@color/colorPrimary"
-                android:textSize="10sp" />
+                android:textSize="11sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -882,7 +886,7 @@
                 android:singleLine="true"
                 android:text="@string/str_settings"
                 android:textColor="@color/inactiveTool"
-                android:textSize="10sp" />
+                android:textSize="11sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -912,7 +916,7 @@
                 android:singleLine="true"
                 android:text="@string/str_about"
                 android:textColor="@color/inactiveTool"
-                android:textSize="10sp" />
+                android:textSize="11sp" />
         </LinearLayout>
 
     </LinearLayout>

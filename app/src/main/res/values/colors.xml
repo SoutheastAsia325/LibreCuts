@@ -74,5 +74,4 @@
     <!-- 应用级蒙层（随明暗反转）与视频浮层前景色（永远浅色，因为其下永远是视频/纯黑） -->
     <color name="scrim">#B3FFFFFF</color>
     <color name="onScrim">#FFFFFF</color>
-    <color name="scrimSoft">#55000000</color>
 </resources>

@@ -70,5 +70,4 @@
     <color name="colorError">#FF6B6B</color>
     <color name="scrim">#B3000000</color>
     <color name="onScrim">#FFFFFF</color>
-    <color name="scrimSoft">#55000000</color>
 </resources>
