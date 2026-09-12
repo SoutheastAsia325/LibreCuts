@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  项目列表项：整行一个长方形（每排一个），点击进入编辑，右侧垃圾桶移除记录。
+  不使用 RecyclerView，由 MainActivity 直接 inflate 到 LinearLayout 中（与既有语言列表做法一致）。
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/projectRowRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/bg_project_row"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    android:gravity="center_vertical"
+    android:minHeight="84dp"
+    android:orientation="horizontal"
+    android:padding="14dp">
+
+    <!-- 缩略图占位 -->
+    <View
+        android:id="@+id/vProjectThumb"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:background="@drawable/bg_project_thumb" />
+
+    <!-- 标题 + 元信息 -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvProjectName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:textColor="@color/textColor"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tvProjectMeta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/iconSecondary"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvProjectMissing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/str_project_missing"
+            android:textColor="@color/iconSecondary"
+            android:textSize="11sp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <!-- 进入编辑 -->
+    <ImageView
+        android:id="@+id/ivProjectOpen"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_play_24"
+        app:tint="@color/textColor" />
+
+    <!-- 移除记录 -->
+    <ImageView
+        android:id="@+id/ivProjectDelete"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="10dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/str_delete_project_record"
+        android:padding="6dp"
+        android:src="@drawable/ic_delete_24"
+        app:tint="@color/iconSecondary" />
+
+</LinearLayout>

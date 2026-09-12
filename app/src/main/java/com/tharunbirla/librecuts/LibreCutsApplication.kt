@@ -4,10 +4,13 @@ import android.app.Application
 import android.content.Intent
 import android.util.Log
 import com.tharunbirla.librecuts.utils.ErrorCode
+import com.tharunbirla.librecuts.utils.ThemeMode
 
 class LibreCutsApplication : Application() {
     override fun onCreate() {
         super.onCreate()
+        // 统一套用明暗模式（默认跟随系统），保证任何入口进入都一致
+        ThemeMode.apply(this)
         setupGlobalCrashHandler()
     }
 

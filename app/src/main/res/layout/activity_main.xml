@@ -5,6 +5,20 @@
     android:layout_height="match_parent"
     android:background="@color/background">
 
+    <!-- 毛玻璃背景层：API 31+ 由 GlassUi.applyGlassBlur 做真实模糊，低版本退化为渐变 -->
+    <View
+        android:id="@+id/glassBackdrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_glass_backdrop" />
+
+    <View
+        android:id="@+id/glassGlow"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_glass_glow" />
+
+
     <!-- Top Header Bar -->
     <LinearLayout
         android:id="@+id/layoutTopHeader"
@@ -38,16 +52,15 @@
                 android:fontFamily="sans-serif" />
         </LinearLayout>
     </LinearLayout>
-
-    <!-- Home Page Content (Bento Style Layout) -->
+    <!-- Projects Page Content（项目页：整行长方形列表，每排一个） -->
     <ScrollView
-        android:id="@+id/layoutHomeContent"
+        android:id="@+id/layoutProjectsContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/layoutTopHeader"
         android:paddingHorizontal="20dp"
-        android:paddingTop="12dp"
-        android:paddingBottom="100dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="120dp"
         android:clipToPadding="false"
         android:overScrollMode="never"
         android:scrollbars="none"
@@ -58,139 +71,152 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Hero Bento Card: New Project -->
+            <!-- 主操作：新建项目（实心墨色，扁平无投影） -->
             <LinearLayout
                 android:id="@+id/btnImport"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="210dp"
-                android:background="@drawable/bg_hero_bento_primary"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                android:gravity="bottom"
-                android:orientation="vertical"
-                android:padding="24dp"
-                android:elevation="8dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp">
-
-                    <View
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
-                        android:background="@drawable/circle_primary_container" />
-
-                    <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="14dp"
-                        android:src="@drawable/ic_add_24"
-                        app:tint="@color/onPrimaryContainer" />
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/str_new_project"
-                    android:textColor="@color/textColor"
-                    android:textSize="24sp"
-                    android:fontFamily="sans-serif-medium" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Your next edit starts right here."
-                    android:textColor="@color/iconSecondary"
-                    android:textSize="13sp"
-                    android:fontFamily="sans-serif" />
-
-            </LinearLayout>
-
-            <!-- Secondary Bento Card: Open Project -->
-            <LinearLayout
-                android:id="@+id/btnOpenProject"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="150dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/bg_hero_bento_secondary"
+                android:minHeight="104dp"
+                android:background="@drawable/bg_cta_primary"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
                 android:gravity="center_vertical"
-                android:orientation="vertical"
-                android:padding="24dp"
-                android:elevation="4dp">
+                android:orientation="horizontal"
+                android:padding="20dp">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_add_24"
+                    app:tint="@color/colorOnPrimary" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp">
+                    android:layout_marginStart="14dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                    <View
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/circle_primary_container" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/str_new_project"
+                        android:textColor="@color/colorOnPrimary"
+                        android:textSize="16sp" />
 
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="12dp"
-                        android:src="@drawable/ic_folder_24"
-                        app:tint="@color/onPrimaryContainer" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/ic_arrow_up_right_24"
-                        app:tint="@color/iconSecondary"
-                        android:alpha="0.5" />
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Open Project"
-                    android:textColor="@color/textColor"
-                    android:textSize="18sp"
-                    android:fontFamily="sans-serif-medium" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Load saved .lcprj file to resume editing"
-                    android:textColor="@color/iconSecondary"
-                    android:textSize="13sp"
-                    android:fontFamily="sans-serif"
-                    android:visibility="visible" />
-
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:alpha="0.62"
+                        android:text="@string/str_new_project_desc"
+                        android:textColor="@color/colorOnPrimary"
+                        android:textSize="12sp" />
+                </LinearLayout>
             </LinearLayout>
 
-            <!-- App Tagline -->
+            <!-- 次级操作：打开工程文件（ghost 按钮） -->
+            <LinearLayout
+                android:id="@+id/btnOpenProject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:minHeight="64dp"
+                android:background="@drawable/bg_ghost_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="18dp">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/ic_arrow_up_right_24"
+                    app:tint="@color/textColor" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/str_open_project_file"
+                        android:textColor="@color/textColor"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/str_open_project_file_desc"
+                        android:textColor="@color/iconSecondary"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 最近项目 -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/str_recent_projects"
+                android:textColor="@color/textColor"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:id="@+id/layoutProjectList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <!-- 空状态 -->
+            <LinearLayout
+                android:id="@+id/layoutProjectsEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_glass_panel"
                 android:gravity="center"
-                android:letterSpacing="0.05"
-                android:text="@string/str_free_open_source_nlimitless_cr"
-                android:textColor="@color/colorOnSurface"
-                android:alpha="0.4"
-                android:textSize="14sp"
-                android:fontFamily="sans-serif-light" />
+                android:orientation="vertical"
+                android:padding="28dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_folder_24"
+                    app:tint="@color/iconSecondary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/str_projects_empty"
+                    android:textColor="@color/textColor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center"
+                    android:text="@string/str_projects_empty_desc"
+                    android:textColor="@color/iconSecondary"
+                    android:textSize="12sp" />
+            </LinearLayout>
 
         </LinearLayout>
-
     </ScrollView>
 
     <!-- Settings Page Content (Bento Style Layout) -->
@@ -239,6 +265,41 @@
                     android:textColor="@color/textColor"
                     android:textSize="16sp"
                     android:layout_marginBottom="12dp" />
+
+                <!-- Appearance / Theme Mode Setting -->
+                <LinearLayout
+                    android:id="@+id/btnChangeTheme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingVertical="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_theme_appearance"
+                        android:textColor="@color/textColor"
+                        android:textSize="15sp"
+                        android:fontFamily="sans-serif-medium" />
+
+                    <TextView
+                        android:id="@+id/tvCurrentThemeMode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/str_theme_follow_system"
+                        android:textColor="@color/iconSecondary"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/outlineVariant"
+                    android:layout_marginVertical="4dp" />
 
                 <!-- App Language Setting -->
                 <LinearLayout
@@ -572,7 +633,6 @@
 
         </LinearLayout>
     </ScrollView>
-
     <!-- About Page Content (Bento Style Layout) -->
     <ScrollView
         android:id="@+id/layoutAboutContent"
@@ -755,121 +815,111 @@
 
         </LinearLayout>
     </ScrollView>
-
-    <!-- Bottom Navigation Bar (Docked Full-Width Spec) -->
+    <!-- Floating Glass Bottom Navigation（悬浮毛玻璃导航条：项目 / 设置 / 关于） -->
     <LinearLayout
         android:id="@+id/bottomNavBar"
         android:layout_width="match_parent"
-        android:layout_height="68dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/bg_bottom_nav_docked"
+        android:layout_marginHorizontal="44dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/bg_glass_nav"
+        android:elevation="0dp"
         android:gravity="center"
         android:orientation="horizontal"
-        android:paddingHorizontal="16dp"
-        android:elevation="16dp">
+        android:paddingHorizontal="6dp"
+        android:paddingVertical="6dp">
 
-        <FrameLayout
+        <LinearLayout
+            android:id="@+id/tabProjects"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-            <LinearLayout
-                android:id="@+id/tabHome"
-                android:layout_width="wrap_content"
-                android:layout_height="44dp"
-                android:layout_gravity="center"
-                android:background="@drawable/bg_nav_active_pill"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingHorizontal="18dp">
-                <ImageView
-                    android:id="@+id/ivHome"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/ic_home_24"
-                    app:tint="@color/colorPrimary" />
-                <TextView
-                    android:id="@+id/tvHomeLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="Home"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="13sp"
-                    android:singleLine="true"
-                    android:maxLines="1"
-                    android:fontFamily="sans-serif-medium" />
-            </LinearLayout>
-        </FrameLayout>
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_nav_active_pill"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-            <LinearLayout
-                android:id="@+id/tabSettings"
-                android:layout_width="wrap_content"
-                android:layout_height="44dp"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingHorizontal="18dp">
-                <ImageView
-                    android:id="@+id/ivSettings"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/ic_settings_24"
-                    app:tint="@color/inactiveTool" />
-                <TextView
-                    android:id="@+id/tvSettingsLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="Settings"
-                    android:textColor="@color/inactiveTool"
-                    android:textSize="13sp"
-                    android:singleLine="true"
-                    android:maxLines="1"
-                    android:fontFamily="sans-serif-medium" />
-            </LinearLayout>
-        </FrameLayout>
+            <ImageView
+                android:id="@+id/ivProjects"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_folder_24"
+                app:tint="@color/colorPrimary" />
 
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-            <LinearLayout
-                android:id="@+id/tabAbout"
+            <TextView
+                android:id="@+id/tvProjectsLabel"
                 android:layout_width="wrap_content"
-                android:layout_height="44dp"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingHorizontal="18dp">
-                <ImageView
-                    android:id="@+id/ivAbout"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/ic_info_24"
-                    app:tint="@color/inactiveTool" />
-                <TextView
-                    android:id="@+id/tvAboutLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="About"
-                    android:textColor="@color/inactiveTool"
-                    android:textSize="13sp"
-                    android:singleLine="true"
-                    android:maxLines="1"
-                    android:fontFamily="sans-serif-medium" />
-            </LinearLayout>
-        </FrameLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@string/str_projects"
+                android:textColor="@color/colorPrimary"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tabSettings"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivSettings"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_settings_24"
+                app:tint="@color/inactiveTool" />
+
+            <TextView
+                android:id="@+id/tvSettingsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@string/str_settings"
+                android:textColor="@color/inactiveTool"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tabAbout"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivAbout"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_info_24"
+                app:tint="@color/inactiveTool" />
+
+            <TextView
+                android:id="@+id/tvAboutLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@string/str_about"
+                android:textColor="@color/inactiveTool"
+                android:textSize="10sp" />
+        </LinearLayout>
 
     </LinearLayout>
 

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 项目缩略图占位块（不生成真实视频缩略图，避免触碰解码逻辑） -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/surfaceContainerHigh" />
+    <corners android:radius="@dimen/radius_control" />
+    <stroke
+        android:width="@dimen/glass_hairline"
+        android:color="@color/glassStroke" />
+</shape>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 项目列表项：毛玻璃长方形 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/glassFill" />
+    <corners android:radius="@dimen/radius_card" />
+    <stroke
+        android:width="@dimen/glass_hairline"
+        android:color="@color/glassStroke" />
+</shape>

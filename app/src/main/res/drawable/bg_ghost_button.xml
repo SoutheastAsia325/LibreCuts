@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 次级操作：透明底 + 1dp 细描边（扁平分层，不用投影） -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@android:color/transparent" />
+    <corners android:radius="@dimen/radius_card" />
+    <stroke
+        android:width="@dimen/glass_hairline"
+        android:color="@color/glassStrokeStrong" />
+</shape>

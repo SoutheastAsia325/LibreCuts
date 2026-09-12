@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 柔和径向光晕：叠在 backdrop 上，让毛玻璃面板产生"有东西透过"的层次感 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:type="radial"
+        android:centerX="0.5"
+        android:centerY="0.28"
+        android:gradientRadius="60%p"
+        android:startColor="@color/glassGlow"
+        android:endColor="@color/glassGlowEdge" />
+</shape>

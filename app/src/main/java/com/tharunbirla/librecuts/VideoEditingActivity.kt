@@ -493,6 +493,9 @@ class VideoEditingActivity : AppCompatActivity() {
                         outputStream.write(json.toByteArray())
                     }
                     viewModel.markProjectSaved()
+                    // 唯一一处逻辑侧接入：把刚保存的工程登记进「最近项目」索引。
+                    // 不涉及任何 FFmpeg / Media3 / 渲染处理，仅做 URI 登记。
+                    com.tharunbirla.librecuts.utils.ProjectStore.recordSavedProject(this, uri)
                     Toast.makeText(this, "Project saved successfully", Toast.LENGTH_SHORT).show()
                     if (shouldQuitAfterSave) {
                         shouldQuitAfterSave = false

@@ -65,4 +65,6 @@
     <color name="glassStrokeStrong">#33FFFFFF</color>
     <color name="backdropStart">#0A0A0B</color>
     <color name="backdropEnd">#000000</color>
+    <color name="glassGlow">#1AFFFFFF</color>
+    <color name="glassGlowEdge">#00000000</color>
 </resources>

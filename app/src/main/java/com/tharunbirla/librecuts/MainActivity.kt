@@ -22,6 +22,13 @@ import androidx.core.os.LocaleListCompat
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.tharunbirla.librecuts.databinding.ActivityMainBinding
 import com.tharunbirla.librecuts.utils.ErrorCode
+import com.tharunbirla.librecuts.utils.ProjectEntry
+import com.tharunbirla.librecuts.utils.ProjectStore
+import com.tharunbirla.librecuts.utils.ThemeMode
+import com.tharunbirla.librecuts.utils.applyGlassBlur
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 import com.tharunbirla.librecuts.utils.setBounceClickListener
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
@@ -126,6 +133,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // 先套用用户选择的明暗模式，保证首帧就是正确主题
+        applyThemeMode()
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -139,16 +150,18 @@ class MainActivity : AppCompatActivity() {
             openProjectLauncher.launch(arrayOf("*/*"))
         }
 
-        // Initialize bottom navigation tab backgrounds
-        val attrs = intArrayOf(android.R.attr.selectableItemBackgroundBorderless)
-        val ta = obtainStyledAttributes(attrs)
-        val inactiveBg = ta.getDrawable(0)
-        ta.recycle()
-        binding.tabSettings.background = inactiveBg
-        binding.tabAbout.background = inactiveBg
+        // 悬浮导航：初始只有「项目」页带胶囊，其余状态由 switchTab 统一管理
+        binding.tabSettings.background = null
+        binding.tabAbout.background = null
 
-        // Setup bottom navigation tab switching
-        binding.tabHome.setBounceClickListener {
+        // Appearance（明暗模式）设置行
+        updateThemeModeUI()
+        binding.btnChangeTheme.setBounceClickListener {
+            showThemeModeDialog()
+        }
+
+        // Setup bottom navigation tab switching (项目 / 设置 / 关于)
+        binding.tabProjects.setBounceClickListener {
             switchTab(0)
         }
         
@@ -265,6 +278,18 @@ class MainActivity : AppCompatActivity() {
 
         // Handle shared/intent videos
         handleIntent(intent)
+
+        // 毛玻璃：API 31+ 对背景光晕做真实模糊，低版本静默跳过
+        binding.glassGlow.applyGlassBlur()
+
+        // 初始化悬浮导航与最近项目列表（默认停在「项目」页）
+        switchTab(0)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // 从编辑器保存工程返回后，刷新最近项目列表
+        renderProjectList()
     }
 
     private fun updateExportFolderUI(uri: Uri?, textView: TextView, defaultStringResId: Int) {
@@ -467,37 +492,33 @@ class MainActivity : AppCompatActivity() {
 
     private fun switchTab(tabIndex: Int) {
         val activeBg = ContextCompat.getDrawable(this, R.drawable.bg_nav_active_pill)
-        val attrs = intArrayOf(android.R.attr.selectableItemBackgroundBorderless)
-        val ta = obtainStyledAttributes(attrs)
-        val inactiveBg = ta.getDrawable(0)
-        ta.recycle()
-
         val activeColor = ContextCompat.getColor(this, R.color.colorPrimary)
         val inactiveColor = ContextCompat.getColor(this, R.color.inactiveTool)
 
         // Reset all tabs to inactive
-        binding.layoutHomeContent.visibility = View.GONE
+        binding.layoutProjectsContent.visibility = View.GONE
         binding.layoutSettingsContent.visibility = View.GONE
         binding.layoutAboutContent.visibility = View.GONE
 
-        binding.tabHome.background = inactiveBg
-        binding.ivHome.setColorFilter(inactiveColor)
-        binding.tvHomeLabel.setTextColor(inactiveColor)
+        binding.tabProjects.background = null
+        binding.ivProjects.setColorFilter(inactiveColor)
+        binding.tvProjectsLabel.setTextColor(inactiveColor)
 
-        binding.tabSettings.background = inactiveBg
+        binding.tabSettings.background = null
         binding.ivSettings.setColorFilter(inactiveColor)
         binding.tvSettingsLabel.setTextColor(inactiveColor)
 
-        binding.tabAbout.background = inactiveBg
+        binding.tabAbout.background = null
         binding.ivAbout.setColorFilter(inactiveColor)
         binding.tvAboutLabel.setTextColor(inactiveColor)
 
         when (tabIndex) {
             0 -> {
-                binding.layoutHomeContent.visibility = View.VISIBLE
-                binding.tabHome.background = activeBg
-                binding.ivHome.setColorFilter(activeColor)
-                binding.tvHomeLabel.setTextColor(activeColor)
+                binding.layoutProjectsContent.visibility = View.VISIBLE
+                binding.tabProjects.background = activeBg
+                binding.ivProjects.setColorFilter(activeColor)
+                binding.tvProjectsLabel.setTextColor(activeColor)
+                renderProjectList()
             }
             1 -> {
                 binding.layoutSettingsContent.visibility = View.VISIBLE
@@ -511,6 +532,134 @@ class MainActivity : AppCompatActivity() {
                 binding.ivAbout.setColorFilter(activeColor)
                 binding.tvAboutLabel.setTextColor(activeColor)
             }
+        }
+    }
+
+    // ==================== 外观（明暗模式） ====================
+
+    private fun applyThemeMode() {
+        ThemeMode.apply(this)
+    }
+
+    private fun updateThemeModeUI() {
+        binding.tvCurrentThemeMode.text = when (ThemeMode.current(this)) {
+            ThemeMode.LIGHT -> getString(R.string.str_theme_light)
+            ThemeMode.DARK -> getString(R.string.str_theme_dark)
+            else -> getString(R.string.str_theme_follow_system)
+        }
+    }
+
+    private fun showThemeModeDialog() {
+        val modes = arrayOf(ThemeMode.SYSTEM, ThemeMode.LIGHT, ThemeMode.DARK)
+        val labels = arrayOf(
+            getString(R.string.str_theme_follow_system),
+            getString(R.string.str_theme_light),
+            getString(R.string.str_theme_dark)
+        )
+        val selected = modes.indexOf(ThemeMode.current(this)).coerceAtLeast(0)
+        MaterialAlertDialogBuilder(this)
+            .setTitle(R.string.str_theme_appearance)
+            .setSingleChoiceItems(labels, selected) { dialog, which ->
+                ThemeMode.save(this, modes[which])
+                dialog.dismiss()
+                // 模式变更会触发 Activity 重建，重建后由 updateThemeModeUI() 刷新文案
+                applyThemeMode()
+            }
+            .setNegativeButton(R.string.cancel, null)
+            .show()
+    }
+
+    // ==================== 最近项目列表 ====================
+
+    /** 渲染「最近项目」。数据来自 ProjectStore（应用私有目录的 JSON 索引）。 */
+    private fun renderProjectList() {
+        val container = binding.layoutProjectList ?: return
+        container.removeAllViews()
+
+        val entries: List<ProjectEntry> = try {
+            ProjectStore.load(this)
+        } catch (e: Exception) {
+            Log.e("ProjectList", "load failed", e)
+            emptyList()
+        }
+
+        binding.layoutProjectsEmpty.visibility =
+            if (entries.isEmpty()) View.VISIBLE else View.GONE
+
+        // 一次性取回持久化 URI 授权集合，用于廉价地判断记录是否已失效
+        val grantedUris: Set<String> = try {
+            contentResolver.persistedUriPermissions.map { it.uri.toString() }.toSet()
+        } catch (e: Exception) {
+            emptySet()
+        }
+
+        for (entry in entries) {
+            val row = layoutInflater.inflate(R.layout.item_project, container, false)
+            val tvName = row.findViewById<TextView>(R.id.tvProjectName)
+            val tvMeta = row.findViewById<TextView>(R.id.tvProjectMeta)
+            val tvMissing = row.findViewById<TextView>(R.id.tvProjectMissing)
+            val btnDelete = row.findViewById<View>(R.id.ivProjectDelete)
+
+            tvName.text = entry.name
+
+            val sizeText = if (entry.sizeBytes > 0) formatSize(entry.sizeBytes) + " · " else ""
+            tvMeta.text = sizeText + formatDateTime(entry.lastModified)
+
+            if (entry.uri !in grantedUris) {
+                tvMissing.visibility = View.VISIBLE
+            }
+
+            row.setBounceClickListener {
+                openProject(Uri.parse(entry.uri))
+            }
+
+            btnDelete.setBounceClickListener {
+                ProjectStore.remove(this, entry.uri)
+                showToast(getString(R.string.str_project_removed))
+                renderProjectList()
+            }
+
+            container.addView(row)
+        }
+    }
+
+    /** 进入工程：与「打开项目」完全同一条链路（ProjectImportActivity → 编辑器）。 */
+    private fun openProject(uri: Uri) {
+        try {
+            contentResolver.takePersistableUriPermission(
+                uri,
+                Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+            )
+        } catch (e: Exception) {
+            Log.d("ProjectOpen", "no persistable grant: ${e.message}")
+        }
+        try {
+            val intent = Intent(this, ProjectImportActivity::class.java).apply {
+                putExtra("PROJECT_URI", uri)
+                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+            }
+            startActivity(intent)
+        } catch (e: Exception) {
+            Log.e("ProjectOpen", "open failed", e)
+            showToast(getString(R.string.str_project_missing))
+        }
+    }
+
+    private fun formatSize(bytes: Long): String {
+        if (bytes <= 0) return ""
+        val kb = bytes / 1024.0
+        return if (kb < 1024) {
+            String.format(Locale.US, "%.0f KB", kb)
+        } else {
+            String.format(Locale.US, "%.1f MB", kb / 1024.0)
+        }
+    }
+
+    private fun formatDateTime(millis: Long): String {
+        return try {
+            SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()).format(Date(millis))
+        } catch (e: Exception) {
+            ""
         }
     }
 
