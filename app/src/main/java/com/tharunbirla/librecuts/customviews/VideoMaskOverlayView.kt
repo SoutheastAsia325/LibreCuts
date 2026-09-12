@@ -34,7 +34,7 @@ class VideoMaskOverlayView @JvmOverloads constructor(
     var onMaskChanged: ((EditOperation.MaskConfig) -> Unit)? = null
 
     private val maskPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#00E5FF")
+        color = ContextCompat.getColor(context, R.color.activeTool)
         style = Paint.Style.STROKE
         strokeWidth = 4f
     }

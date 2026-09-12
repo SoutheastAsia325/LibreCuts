@@ -1,4 +1,5 @@
 package com.tharunbirla.librecuts.customviews
+import androidx.core.graphics.ColorUtils
 import androidx.core.content.ContextCompat
 import com.tharunbirla.librecuts.R
 
@@ -35,7 +36,7 @@ class TrackTrimView @JvmOverloads constructor(
     var onDragStateChanged: ((Boolean) -> Unit)? = null
     var customMsPerPixel: Float? = null
 
-    var trackColor: Int = Color.parseColor("#4285F4") // Default blue
+    var trackColor: Int = ContextCompat.getColor(context, R.color.activeTool) // Default blue
     var trackLabel: String? = null
     var isSelectedTrack: Boolean = false
     var isMainVideoTrack: Boolean = false
@@ -61,7 +62,7 @@ class TrackTrimView @JvmOverloads constructor(
         style = Paint.Style.FILL
     }
     private val dimPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#252429") // solid color to mask video frames and create a shrinking effect
+        color = ContextCompat.getColor(context, R.color.surfaceContainerHigh) // solid color to mask video frames and create a shrinking effect
         style = Paint.Style.FILL
     }
     private val wavePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
@@ -155,7 +156,7 @@ class TrackTrimView @JvmOverloads constructor(
                     canvas.drawRect(selRect, borderPaint)
                     
                     val overlay = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-                        color = Color.parseColor("#33FF2A6D")
+                        color = ColorUtils.setAlphaComponent(ContextCompat.getColor(context, R.color.activeTool), 0x33)
                         style = Paint.Style.FILL
                     }
                     canvas.drawRect(selRect, overlay)
@@ -266,7 +267,7 @@ class TrackTrimView @JvmOverloads constructor(
                 
                 // Draw a subtle 10% opacity pink overlay inside the track
                 val selectionOverlayPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-                    color = Color.parseColor("#1AFF4081")
+                    color = ColorUtils.setAlphaComponent(ContextCompat.getColor(context, R.color.activeTool), 0x1A)
                     style = Paint.Style.FILL
                 }
                 canvas.drawRoundRect(rectF, 12f, 12f, selectionOverlayPaint)

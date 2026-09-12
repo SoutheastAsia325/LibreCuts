@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Subtle shadow effect -->
-    <item>
-        <shape android:shape="rectangle">
-            <solid android:color="#0D0D0D" />
-            <corners android:radius="20dp" />
-        </shape>
-    </item>
-    <!-- Main floating panel with rounded corners -->
-    <item android:top="2dp">
-        <shape android:shape="rectangle">
-            <solid android:color="@color/surfaceContainerHigh" />
-            <corners android:radius="20dp" />
-            <stroke android:width="0.5dp" android:color="@color/outline" />
-        </shape>
-    </item>
-</layer-list>
+<!-- 浮动面板：扁平毛玻璃，1dp 细描边分层（原来的 "#0D0D0D 偏移 2dp" 是伪阴影，与扁平化冲突，已移除） -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/glassFillElevated" />
+    <corners android:radius="@dimen/radius_sheet" />
+    <stroke
+        android:width="@dimen/glass_hairline"
+        android:color="@color/glassStroke" />
+</shape>

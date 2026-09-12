@@ -1,8 +1,9 @@
 package com.tharunbirla.librecuts.customviews
+import androidx.core.content.ContextCompat
+import com.tharunbirla.librecuts.R
 
 import android.content.Context
 import android.graphics.Canvas
-import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Typeface
 import android.util.AttributeSet
@@ -18,21 +19,21 @@ class TimeRulerView @JvmOverloads constructor(
     private var videoDurationMs: Long = 0L
 
     private val tickPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#3F3F4A") // outline
+        color = ContextCompat.getColor(context, R.color.outline) // outline
         strokeWidth = 2f
         style = Paint.Style.STROKE
         strokeCap = Paint.Cap.ROUND
     }
 
     private val majorTickPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#8A8A93") // toolTextInactive / inactiveTool
+        color = ContextCompat.getColor(context, R.color.inactiveTool) // toolTextInactive / inactiveTool
         strokeWidth = 3f
         style = Paint.Style.STROKE
         strokeCap = Paint.Cap.ROUND
     }
 
     private val textPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#8A8A93")
+        color = ContextCompat.getColor(context, R.color.inactiveTool)
         textSize = 24f // approx 10sp
         textAlign = Paint.Align.CENTER
         typeface = Typeface.create(Typeface.MONOSPACE, Typeface.NORMAL)
